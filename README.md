@@ -1,5 +1,5 @@
 Author: Shazia Akbar
-Date : 14th April 2018
+Date : 1st August 2018
 
 --------------------------------------------------------------------------- 
 Overview: 
@@ -9,4 +9,4 @@ Commonly used functions for visualizing results from trained auto encoders (ae-v
 --------------------------------------------------------------------------- 
 Description: 
 
-TBC
+Small, compact code for visualizing trained Keras models using either reference images. Useful for sanity checking your trained models.

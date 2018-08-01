@@ -56,3 +56,20 @@ def print_images(image_list, columns=5, figsize=(5,5)):
         index = index + 1
     plt.show()
 
+
+from skimage import draw
+def get_sample_texture(input_size):
+    """Function which retrieves dummy texture
+        
+        Args:
+        input_size ((int, int, int)): Specify width, height and channels for sample texture
+        Returns:
+        ndarray binary image containing two circles
+        """
+    w, h, c = input_size
+    arr = np.zeros((w, h, c))
+    rr, cc = draw.circle_perimeter(20, 20, radius=8, shape=arr.shape)
+    arr[rr, cc, :] = 1
+    rr, cc = draw.circle_perimeter(100, 50, radius=20, shape=arr.shape)
+    arr[rr, cc, :] = 1
+    return arr

@@ -6,5 +6,5 @@ Description:
 Short and simple example of visualization tool
 '''
 
-import aeviz
-aeviz.vizualize_encoder('./test_vae.h5')
+import viz
+viz.vizualize_encoder('./test_vae.h5')
