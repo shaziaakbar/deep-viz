@@ -63,24 +63,25 @@ def vae_loss(x, x_decoded_mean):
     return xent_loss + kl_loss
 
 if False:
-    vae = Model(x, x_decoded_mean)
-    print(vae.summary())
-    vae.compile(optimizer=Adam(lr=0.01), loss=vae_loss)
+    with sess.as_default():
+        vae = Model(x, x_decoded_mean)
+        print(vae.summary())
+        vae.compile(optimizer=Adam(lr=0.01), loss=vae_loss)
 
-    (x_train, y_train), (x_test, y_test) = mnist.load_data()
-    x_train = x_train.astype('float32') / 255.
-    x_train = x_train.reshape((x_train.shape[0],) + original_img_size)
-    x_test = x_test.astype('float32') / 255.
-    x_test = x_test.reshape((x_test.shape[0],) + original_img_size)
+        (x_train, y_train), (x_test, y_test) = mnist.load_data()
+        x_train = x_train.astype('float32') / 255.
+        x_train = x_train.reshape((x_train.shape[0],) + original_img_size)
+        x_test = x_test.astype('float32') / 255.
+        x_test = x_test.reshape((x_test.shape[0],) + original_img_size)
 
-    vae.fit(x_train, x_train,
-            shuffle=True,
-            epochs=epochs,
-            batch_size=batch_size,
-            validation_data=(x_test, x_test))
+        vae.fit(x_train, x_train,
+                shuffle=True,
+                epochs=epochs,
+                batch_size=batch_size,
+                validation_data=(x_test, x_test))
 
-    print("Saving trained encoder")
-    vae.save("./test_vae.h5")
+        print("Saving trained encoder")
+        vae.save("./test_vae.h5")
 
 def load_vae_model(model_name):
     model = load_model(model_name, custom_objects={'latent_dim': latent_dim, 'epsilon_std': epsilon_std, 'vae_loss': vae_loss})
