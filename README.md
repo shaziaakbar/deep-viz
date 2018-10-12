@@ -1,9 +1,11 @@
-Author: Shazia Akbar
-Date : 11th October 2018
+# deep-viz 
 
---------------------------------------------------------------------------- 
-Overview: 
+> Small, compact code for visualizing trained Keras models using either reference images. Useful for sanity checking your trained models.
 
-Small, compact code for visualizing trained Keras models using either reference images. Useful for sanity checking your trained models.
+> Visualization included for:
+- Encoding layer: code provided for autoencoder
+- Convolutional layer in a CNN
 
-Functionality is included for visualizing encoding layer in an autoencoder and any specified conv layer in a CNN.
+> Developed in Python 3.5. Visualizations displayed in matplotlib interface
+
+---
